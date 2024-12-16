@@ -8,9 +8,9 @@
 
        <div class="z-10 flex flex-col justify-center h-full p-4 px-20 py-0 bg-gray-100 border-4 border-gray-400 pt-28 rounded-2xl">
            <p class="text-lg">Bitte Benutzername eingeben:</p>
-           <input type="text"  value="" class="p-1 border-2 border-gray-400 rounded-lg w-80">
+           <input id="username-input" type="text"  value="" class="p-1 border-2 border-gray-400 rounded-lg w-80">
            
-           <button class="p-1 mt-2 text-white border-2 border-sky-700 rounded-xl bg-sky-700" >Neuen Raum erstellen</button>
+           <button (click)="createAndNavigate()" id="save-username-btn" class="p-1 mt-2 text-white border-2 border-sky-700 rounded-xl bg-sky-700" >Neuen Raum erstellen</button>
         </div>
     </div>
 </div>
