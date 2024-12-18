@@ -1,4 +1,68 @@
+<div class="flex flex-col items-center">
+  <p class="flex flex-col pt-12 text-5xl font-semibold text-center">
+    Scrum Poker Raum
+  </p>
 
-<div>
-    <p>Scrum Poker Raum</p>
+  <p class="pt-16 text-2xl font-semibold">Auswahl der Story Punkte:</p>
+
+  <div class="flex flex-col items-center justify-center gap-8">
+    <div
+      class="flex flex-row flex-wrap justify-center w-full gap-6 p-8 lg:w-2/3"
+    >
+      @for (storyPoint of storyPoints; track storyPoint) {
+      <div
+        [id]="storyPoint.id"
+        [ngClass]="{ 'bg-gray-400': storyPoint.checked ,'bg-gray-100': !storyPoint.checked }"
+        (click)="toggleField(storyPoint.id)"
+        class="relative flex items-center justify-center h-40 text-5xl bg-gray-100 border-2 border-gray-300 rounded-md cursor-pointer select-none group w-28"
+      >
+        {{ storyPoint.label }}
+      
+        <div
+            class="z-50 absolute bottom-[-2rem] transform text-center text-white border-gray-300 rounded-md  bg-sky-700 w-40 font-semibold text-sm py-1 px-2 opacity-0 group-hover:opacity-80 transition-opacity duration-700"
+        >
+            {{ storyPoint.info }}
+        </div>
+    
+      </div>
+      }
+    </div>
+  </div>
+
+  <div class="flex flex-col w-1/2">
+    
+    <div class="flex flex-row justify-between pt-12">
+      <p class="text-2xl font-semibold">Ergebnisse:</p>
+      <button
+        class="px-4 mt-2 font-semibold text-white border-2 border-sky-700 rounded-2xl bg-sky-700"
+      >
+        Zurücksetzen
+      </button>
+      <button
+        (click)="toggleText()"
+        class="p-1 px-4 mt-2 font-semibold text-white border-2 border-sky-700 rounded-2xl bg-sky-700"
+      >
+        {{ isClicked ? "Verstecken" : "Anzeigen" }}
+      </button>
+    </div>
+
+    <div class="flex flex-col gap-1 pt-5 text-base">
+      <div
+        class="flex flex-row justify-between p-2 font-semibold border-2 rounded-lg"
+      >
+        <p>Benutzername</p>
+        <p>Geschätzte Punkte</p>
+      </div>
+
+      <div class="flex flex-row justify-between p-2 border-2 rounded-lg">
+        <p>{{ username }}</p>
+        <p>  Geheim!</p>
+      </div>
+
+      <div class="flex flex-row justify-between p-2 border-2 rounded-lg">
+        <p>Matthias</p>
+        <p>Geheim!</p>
+      </div>
+    </div>
+  </div>
 </div>
